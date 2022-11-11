@@ -1,0 +1,25 @@
+﻿<Application x:Class="AppModernLook.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AppModernLook"
+             xmlns:viewModel="clr-namespace:AppModernLook.MVVM.ViewModel"
+             xmlns:view="clr-namespace:AppModernLook.MVVM.View"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/TextBoxTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:DiscoverViewModel}">
+                <view:DiscoverView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:FeaturesViewModel}">
+                <view:FeaturesView/>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
