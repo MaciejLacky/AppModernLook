@@ -8,7 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="close.png" />
+    <None Remove="minimalize.png" />
+    <None Remove="minMax.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="MVVM\Model\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="close.png" />
+    <Resource Include="minimalize.png" />
+    <Resource Include="minMax.png" />
   </ItemGroup>
 
 </Project>

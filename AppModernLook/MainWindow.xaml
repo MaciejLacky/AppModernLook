@@ -10,15 +10,21 @@
         Height="600" 
         Width="920"
         WindowStyle="None"
-        ResizeMode="NoResize"
+        ResizeMode="CanResize"
         Background="Transparent"
         AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen" MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        
         >
+    
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
     <Border Background="#272537" CornerRadius="20">
         <Grid>
+            <Grid.Background>
+                <ImageBrush/>
+            </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
@@ -71,6 +77,52 @@
                 Grid.Column="1"
                 Style="{StaticResource ModernTextbox}"
                 />
+            <DockPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" >
+               
+                <Button  
+                    Width="30"
+                Height="30"
+                VerticalContentAlignment="Center"
+                HorizontalAlignment="Right"                 
+                Margin="5"
+                BorderBrush="#00000000" 
+                Command="{Binding MinimalizeViewCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, 
+                           AncestorType={x:Type Window}}}" RenderTransformOrigin="0.6,0.562">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/minimalize.png"/>
+                    </Button.Background>
+                </Button>
+                <Button  
+                Width="30"
+                Height="30"
+                VerticalContentAlignment="Center"
+                HorizontalAlignment="Right"                 
+                Margin="5"
+                BorderBrush="#00000000"
+                Command="{Binding ResizeViewCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, 
+                           AncestorType={x:Type Window}}}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/minMax.png"/>
+                    </Button.Background>
+                </Button>
+                <Button 
+                    Width="30"
+                Height="30"
+                VerticalContentAlignment="Center"
+                HorizontalAlignment="Left"                 
+                Margin="5"
+                 
+                Command="{Binding CloseViewCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, 
+                           AncestorType={x:Type Window}}}" BorderBrush="#00000000">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/close.png"/>
+                    </Button.Background>
+                </Button>
+            </DockPanel>
+
             <ContentControl Grid.Row="1" 
                             Grid.Column="1" 
                             Margin="10"
